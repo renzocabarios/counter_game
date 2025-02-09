@@ -1,10 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  ignoredRouteFiles: ["**/.*"],
-  browserNodeBuiltinsPolyfill: {
-    modules: { buffer: true, events: true, http: true },
+  webpack: (config, context) => {
+    if (config.plugins) {
+      config.plugins.push(
+        new context.webpack.IgnorePlugin({
+          resourceRegExp: /^(lokijs|pino-pretty|encoding)$/,
+        })
+      );
+    }
+    return config;
   },
 };
 

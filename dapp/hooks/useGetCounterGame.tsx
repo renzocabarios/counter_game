@@ -8,15 +8,21 @@ import { stringToHex } from "viem";
 export default function useGetCounterGame() {
   const { ...query } = useQuery({
     queryFn: async () => {
-      return = await readContract(config, {
+      const counterGameAddress = await readContract(config, {
         abi: REGISTRY_ABI,
         address: REGISTRY_ADDRESS,
         functionName: "getContractAddress",
         args: [stringToHex("CounterGame", { size: 32 })],
       });
-   
+      const result = await readContract(config, {
+        abi: COUNTER_GAME_ABI,
+        address: counterGameAddress,
+        functionName: "currentRound",
+      });
+
+      return result;
     },
-    queryKey: ["counter-game"],
+    queryKey: ["round"],
   });
 
   return { ...query };

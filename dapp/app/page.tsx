@@ -2,13 +2,11 @@
 import ConnectWallet from "@/components/connect-wallet";
 import { Button } from "@/components/ui/button";
 import useIncrementCounter from "@/hooks/useIncrementCounter";
-import useReadCurrentCounter from "@/hooks/useReadCurrentCounter";
 import useReadCurrentRound from "@/hooks/useReadCurrentRound";
 import useReadPoints from "@/hooks/useReadPoints";
 import { cn } from "@/lib/utils";
-import { Tally5 } from "lucide-react";
+
 export default function Home() {
-  const { data: currentCount } = useReadCurrentCounter();
   const { mutate: incrementCounter } = useIncrementCounter();
   const { data: currentRound } = useReadCurrentRound();
   const { data: userpoints } = useReadPoints();
