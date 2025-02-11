@@ -1,0 +1,12 @@
+{
+  "mainnet": {
+    "Registry": {
+      "address": "0x970745f24E68Ac392DAdaaDDAC7d0A75B09510AA",
+      "startBlock": 2023210
+    },
+    "CounterGame": {
+      "address": "0x04893Aa4C8c56995A45850B96d205Ee58aC16dC5",
+      "startBlock": 2023210
+    }
+  }
+}

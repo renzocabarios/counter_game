@@ -1,0 +1,1 @@
+forge script script/test.s.sol:MyScript --via-ir --rpc-url core_testnet --broadcast --slow --no-cache --legacy
