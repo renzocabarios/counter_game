@@ -27,16 +27,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang="en">
-      <body
-        className={`font-pressStart subpixel-antialiased`}
-      >
+      <body className={`font-pressStart subpixel-antialiased`}>
         <Providers>
-          <Header />
-          {children}
-          <Footer />
+          <div className="flex min-h-screen flex-col justify-between">
+            <Header />
+            {children}
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>
