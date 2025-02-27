@@ -1,0 +1,3 @@
+import { Address } from 'viem';
+// export const REGISTRY_ADRESS : Address = "0x0Fe166d8E1f8BB1A22D0290B41f3052746775559"
+export const REGISTRY_ADRESS : Address = "0x356cC684021271d805B0C2E260e4986CDd13989c"
