@@ -22,7 +22,6 @@ body {
 }
 
 
-
 @layer base {
   :root {
 
@@ -137,4 +136,35 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@font-face {
+  font-family: 'PressStart2P';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+.heading{
+  @apply font-pressStart text-[48px];
+}
+
+.subheading{
+  @apply font-pressStart text-[32px];
+}
+
+.title{
+  @apply font-pressStart text-[18px];
+}
+
+.description{
+  @apply font-pressStart text-[16px];
+}
+
+.subtitle{
+  @apply font-pressStart text-[14px];
+}
+
+.subtext{
+  @apply font-pressStart text-[12px];
 }
