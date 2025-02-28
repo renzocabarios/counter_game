@@ -6,17 +6,17 @@ schema:
 dataSources:
   - kind: ethereum
     name: Registry
-    network: mainnet
+    network: core
     source:
-      address: "0x970745f24E68Ac392DAdaaDDAC7d0A75B09510AA"
+      address: "0xa1756BCeD889EE6Eea63D7254d06daBAe5ad3c83"
       abi: Registry
-      startBlock: 2023210
+      startBlock: 2493741
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
-        - Round
+        - RegistryContract
       abis:
         - name: Registry
           file: ./abis/Registry.json
@@ -24,3 +24,25 @@ dataSources:
         - event: RegisterContract(bytes32,address)
           handler: handleRegisterContract
       file: ./src/registry.ts
+  - kind: ethereum
+    name: CounterGame
+    network: core
+    source:
+      address: "0x77f81c543dE7954AE564D8CFA9570340738A7ce6"
+      abi: CounterGame
+      startBlock: 2493741
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Round
+      abis:
+        - name: CounterGame
+          file: ./abis/CounterGame.json
+      eventHandlers:
+        - event: IncrementCount(address,int256,int256)
+          handler: handleIncrementCount
+        - event: CreateRound(int256,int256)
+          handler: handleCreateRound
+      file: ./src/counterGame.ts

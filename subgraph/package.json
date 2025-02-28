@@ -2,8 +2,9 @@
   "name": "bayc",
   "license": "UNLICENSED",
   "scripts": {
-    "prepare": "graph build && graph codegen ",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ counter_game",
+    "prepare": "graph codegen && graph build ",
+    "deploy": "graph deploy --node https://thegraph-node.test2.btcs.network --ipfs https://thegraph-ipfs.test2.btcs.network --access-token b020b95e511443699e72a10c697f84c0 counter_game",
+    "create": "graph create --node https://thegraph-node.test2.btcs.network counter_game --access-token b020b95e511443699e72a10c697f84c0",
     "create-local": "graph create --node http://localhost:8020/ counter_game",
     "remove-local": "graph remove --node http://localhost:8020/ counter_game",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 counter_game",
