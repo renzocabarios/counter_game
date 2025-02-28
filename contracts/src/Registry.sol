@@ -9,16 +9,14 @@ contract Registry is Ownable {
     constructor() Ownable(msg.sender) {}
 
     function setContractAddress(
-        bytes32  _name,
+        bytes32 _name,
         address _address
     ) public onlyOwner {
         registry[_name] = _address;
         emit RegisterContract(_name, _address);
     }
 
-    function getContractAddress(
-        bytes32  _name
-    ) public view returns (address) {
+    function getContractAddress(bytes32 _name) public view returns (address) {
         require(registry[_name] != address(0), "Registry :: Address not found");
         return registry[_name];
     }

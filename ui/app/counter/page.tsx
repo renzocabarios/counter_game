@@ -1,30 +1,26 @@
-import Container from "@/components/container";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
+"use client";
+import useIncrementCounter from "@/hooks/useInrementCounter";
+import { useState } from "react";
 
 export default function Home() {
-  const features = [
-    {
-      icon: "/icons/bitcoin-bag.png",
-      title: "Earn While You play",
-      subtitle: "Win rewards in $PLAY and other tokens",
-    },
-    {
-      icon: "/icons/joystick-04.png",
-      title: "True Digital Ownership",
-      subtitle: "Own in-game items as NFTs.",
-    },
-    {
-      icon: "/icons/zap.png",
-      title: "Fast & Fair Gameplay",
-      subtitle: "Powered by Core Blockchain for smooth transactions. ",
-    },
-    {
-      icon: "/icons/champion.png",
-      title: "Climb the Leaderboards",
-      subtitle: "Compete for the top spot and exclusive rewards.",
-    },
-  ];
+  const { mutate } = useIncrementCounter();
+
+  const [value, setvalue] = useState(1);
+
+  const onIncrement = () => {
+    mutate({ value: value });
+  };
+
+  const onAdd = () => {
+    if (value < 7) {
+      setvalue((state) => state + 1);
+    }
+  };
+  const onMinus = () => {
+    if (value >= 1) {
+      setvalue((state) => state - 1);
+    }
+  };
   return (
     <>
       <div
@@ -53,20 +49,27 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white/100">
-                <p className="text-6xl text-black">1+</p>
+              <div
+                onClick={onIncrement}
+                className="flex h-[150px] w-[150px] items-center justify-center rounded-full bg-white/100"
+              >
+                <p className="text-6xl text-black">{value}+</p>
               </div>
 
               <div className="flex w-full flex-col items-center gap-4">
-                <p>Guess</p>
-
                 <div className="flex items-center justify-center gap-4">
-                  <div className="flex h-[56px] w-[56px] items-center justify-center rounded-full border border-white/100">
+                  <div
+                    onClick={onMinus}
+                    className="flex h-[56px] w-[56px] items-center justify-center rounded-full border border-white/100"
+                  >
                     <p>-</p>
                   </div>
+                  <p>Increment</p>
 
-                  <p>10</p>
-                  <div className="flex h-[56px] w-[56px] items-center justify-center rounded-full border border-white/100">
+                  <div
+                    onClick={onAdd}
+                    className="flex h-[56px] w-[56px] items-center justify-center rounded-full border border-white/100"
+                  >
                     <p>+</p>
                   </div>
                 </div>

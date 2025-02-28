@@ -1,8 +1,13 @@
-type Round @entity(immutable: true) {
-  id: Bytes!
-  owner: Bytes! # address
-  approved: Bytes! # address
-  tokenId: BigInt! # uint256
+type Round @entity(immutable: false) {
+  id: ID!
+  countLimit: BigInt! # uint256
+  currentCount: BigInt! # uint256
+  roundNumber: BigInt! # uint256
+}
+
+type RegistryContract @entity(immutable: false) {
+  id: ID! # contract name
+  address: Bytes! # address
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!

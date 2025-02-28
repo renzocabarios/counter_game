@@ -4,8 +4,10 @@ import { Button } from "./ui/button";
 export default function Header() {
   return (
     <div className="relative z-40 flex w-full items-center justify-center">
-      <div className="sticky right-0 top-0 w-full max-w-[1440px] items-center justify-between p-4">
+      <div className="sticky right-0 top-0 flex w-full max-w-[1440px] items-center justify-between p-4">
         <p className="heading uppercase text-white/100">CorePlay</p>
+
+        <ConnectWallet />
       </div>
     </div>
   );
