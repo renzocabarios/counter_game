@@ -32,9 +32,7 @@ export default function RootLayout({
       <body className={`font-pressStart subpixel-antialiased`}>
         <Providers>
           <div className="flex min-h-screen flex-col justify-between">
-            <Header />
             {children}
-            <Footer />
           </div>
         </Providers>
       </body>

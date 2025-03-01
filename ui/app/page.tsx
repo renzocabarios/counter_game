@@ -1,4 +1,6 @@
 import Container from "@/components/container";
+import Footer from "@/components/footer";
+import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -27,6 +29,7 @@ export default function Home() {
   ];
   return (
     <>
+    <Header />
       <div
         className="fixed left-0 top-0 h-[100vh] w-[100vw] bg-fixed"
         style={{
@@ -119,6 +122,7 @@ export default function Home() {
           </Container>
         </main>
       </div>
+      <Footer />
     </>
   );
 }
