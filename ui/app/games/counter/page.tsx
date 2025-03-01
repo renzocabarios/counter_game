@@ -5,6 +5,9 @@ import SideTable from "@/components/counter/sideTable";
 import Background from "@/components/Background";
 import DisplayValue from "@/components/counter/game/displayValue";
 import GameConsole from "@/components/counter/game/gameConsole";
+import { Button } from "@/components/ui/button";
+import { mockStats } from "@/lib/constants";
+import StatsTable from "@/components/statsTable";
 
 export default function Home() {
   const { mutate } = useIncrementCounter();
@@ -49,9 +52,23 @@ export default function Home() {
               onMinus={onMinus}
             />
           </div>
-          {/* <div className="flex w-full flex-col gap-4 p-4">
-            <p>Leaderboards</p>
-          </div> */}
+          <div className="flex w-full basis-[100%] flex-col gap-4 rounded-md border border-white/32 bg-black/50 p-4 text-white/100">
+            <div className="flex justify-between">
+              <p className="subheading">Statistics</p>
+              <div className="subtitle flex h-[50px] w-fit items-center justify-center gap-2 rounded-md border border-white/32 px-2 text-white/100">
+                <Button className="bg-black/50 px-4 py-3 text-white/100 hover:bg-grey-400">
+                  All Count
+                </Button>
+                <Button className="bg-black/50 px-4 py-3 text-white/100 hover:bg-grey-400">
+                  My Count
+                </Button>
+                <Button className="bg-black/50 px-4 py-3 text-white/100 hover:bg-grey-400">
+                  Leaderboards
+                </Button>
+              </div>
+            </div>
+            <StatsTable data={mockStats} />
+          </div>
         </div>
       </div>
     </>

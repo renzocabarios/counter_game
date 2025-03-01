@@ -53,3 +53,21 @@ export const availableGames = [
     url: "#",
   },
 ];
+
+export const mockStats = [
+  {
+    time: Date.now(),
+    user: '0xd3...d23d',
+    guess: 4
+  },
+  {
+    time: Date.now(),
+    user: '0xdc...2efd',
+    guess: 7
+  },
+  {
+    time: Date.now(),
+    user: '0xo3...2dd4',
+    guess: 1
+  }
+]
