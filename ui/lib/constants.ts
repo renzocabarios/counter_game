@@ -19,55 +19,55 @@ export const socials = [
   {
     title: "X",
     url: "#",
-    icon: FaXTwitter
+    icon: FaXTwitter,
   },
   {
     title: "Telegram",
     url: "#",
-    icon: LiaTelegramPlane
-  }
-]
+    icon: LiaTelegramPlane,
+  },
+];
 
 export const subSidebar = [
   {
-    title: "Dailies",
-    url: "#",
+    title: "Tasks",
+    url: "/arcade/tasks",
   },
   {
     title: "Referral",
-    url: "#",
-  }
+    url: "/arcade/referral",
+  },
 ];
 
 export const availableGames = [
   {
     title: "Counter",
-    url: "/games/counter",
+    url: "/arcade/counter",
   },
   {
-    title: "Game 2",
-    url: "#",
+    title: "Coin Flip",
+    url: "/arcade/coinflip",
   },
   {
-    title: "Game 3",
-    url: "#",
+    title: "Dice",
+    url: "/arcade/dice",
   },
 ];
 
 export const mockStats = [
   {
     time: Date.now(),
-    user: '0xd3...d23d',
-    guess: 4
+    user: "0xd3...d23d",
+    guess: 4,
   },
   {
     time: Date.now(),
-    user: '0xdc...2efd',
-    guess: 7
+    user: "0xdc...2efd",
+    guess: 7,
   },
   {
     time: Date.now(),
-    user: '0xo3...2dd4',
-    guess: 1
-  }
-]
+    user: "0xo3...2dd4",
+    guess: 1,
+  },
+];
