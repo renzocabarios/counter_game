@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-pressStart subpixel-antialiased`}>
+      <body className={`scroll-smooth font-pressStart subpixel-antialiased`}>
         <Providers>
           <div className="flex min-h-screen flex-col justify-between">
             {children}

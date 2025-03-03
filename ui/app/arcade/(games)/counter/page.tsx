@@ -1,13 +1,13 @@
 "use client";
 import useIncrementCounter from "@/hooks/useInrementCounter";
 import { useState } from "react";
-import SideTable from "@/components/counter/sideTable";
-import Background from "@/components/Background";
-import DisplayValue from "@/components/counter/arcade/displayValue";
-import GameConsole from "@/components/counter/arcade/gameConsole";
+import SideTable from "@/components/counter/side-table";
+import Background from "@/components/background";
+import DisplayValue from "@/components/game-console/arcade/display-value";
+import GameConsole from "@/components/game-console/arcade/game-console";
 import { Button } from "@/components/ui/button";
 import { mockStats } from "@/lib/constants";
-import StatsTable from "@/components/statsTable";
+import StatsTable from "@/components/stats-table";
 
 export default function Home() {
   const { mutate } = useIncrementCounter();
@@ -67,7 +67,7 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-            <StatsTable data={mockStats} />
+            <StatsTable game data={mockStats} />
           </div>
         </div>
       </div>
