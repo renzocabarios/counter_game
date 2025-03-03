@@ -1,5 +1,5 @@
 "use client";
-import Background from "@/components/Background";
+import Background from "@/components/background";
 
 export default function Referral() {
   return (
