@@ -1,7 +1,7 @@
 "use client";
 import useIncrementCounter from "@/hooks/useInrementCounter";
 import { useState } from "react";
-import SideTable from "@/components/counter/side-table";
+import SideTable from "@/components/game-console/arcade/round-prizepool";
 import Background from "@/components/background";
 import DisplayValue from "@/components/game-console/arcade/display-value";
 import GameConsole from "@/components/game-console/arcade/game-console";
@@ -46,6 +46,7 @@ export default function Home() {
               </div>
             </div>
             <GameConsole
+              gameType="counter"
               value={value}
               onIncrement={onIncrement}
               onAdd={onAdd}

@@ -1,4 +1,4 @@
-export enum ArcadeRoutes {
+export enum EArcadeRoutes {
   Counter = "/arcade/counter",
   Coinflip = "/arcade/coinflip",
   Dice = "/arcade/dice",
@@ -6,10 +6,16 @@ export enum ArcadeRoutes {
   Referral = "/arcade/referral",
 }
 
-export const ArcadeTitles: Record<ArcadeRoutes, any> = {
-  [ArcadeRoutes.Counter]: "Counter",
-  [ArcadeRoutes.Coinflip]: "Coinflip",
-  [ArcadeRoutes.Dice]: "Dice",
-  [ArcadeRoutes.Tasks]: "Tasks",
-  [ArcadeRoutes.Referral]: "Referral",
+export const ArcadeTitles: Record<EArcadeRoutes, any> = {
+  [EArcadeRoutes.Counter]: "Counter",
+  [EArcadeRoutes.Coinflip]: "Coinflip",
+  [EArcadeRoutes.Dice]: "Dice",
+  [EArcadeRoutes.Tasks]: "Tasks",
+  [EArcadeRoutes.Referral]: "Referral",
 };
+
+export enum EGameType {
+  Counter = "counter",
+  Coinflip = "coinflip",
+  Dice = "dice",
+}

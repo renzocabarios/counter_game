@@ -26,7 +26,7 @@ function StatsTable({
             <TableRow className="grid w-full grid-cols-3 gap-4 border-b py-2 text-white/100">
               <TableHead className="text-start">Time</TableHead>
               <TableHead className="text-center">User</TableHead>
-              <TableHead className="text-end">Guess</TableHead>
+              <TableHead className="text-end">Bet</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>

@@ -5,7 +5,7 @@ export default function Header({ title }: { title: string }) {
     <div className="relative z-40 flex w-full items-center justify-center pt-4">
       <div className="sticky right-0 top-0 flex w-full max-w-[1440px] items-center justify-between p-4">
         <p className="subheading uppercase text-white/100">
-          {title ?? "CorePlay"}
+          {title === "coinflip" ? "Coin Flip" : (title ?? "CorePlay")}
         </p>
 
         <div className="flex flex-row gap-4">

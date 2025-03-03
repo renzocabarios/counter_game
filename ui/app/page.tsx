@@ -56,7 +56,7 @@ export default function Home() {
                 </p>
               </div>
               <Button className="title rounded-full border border-orange/100 uppercase text-orange/100">
-                <Link href="/arcade/counter">Get Started</Link>
+                <Link href="/arcade/">Get Started</Link>
               </Button>
             </div>
           </Container>
@@ -117,7 +117,7 @@ export default function Home() {
                 Ready to level up? Get started now!
               </h4>
               <Button className="title rounded-full border border-orange/100 uppercase text-orange/100">
-                <Link href="/arcade/counter">Get Started</Link>
+                <Link href="/arcade/">Get Started</Link>
               </Button>
             </div>
           </Container>

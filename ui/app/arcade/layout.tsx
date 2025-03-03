@@ -3,11 +3,11 @@ import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import Header from "./_components/header";
 import { usePathname } from "next/navigation";
-import { ArcadeRoutes, ArcadeTitles } from "@/lib/enum";
+import { EArcadeRoutes, ArcadeTitles } from "@/lib/enum";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 
-  const pathname = usePathname() as ArcadeRoutes;
+  const pathname = usePathname() as EArcadeRoutes;
   const title = ArcadeTitles[pathname] || "CorePlay";
 
   return (
