@@ -1,4 +1,6 @@
-function Background() {
+import React from "react";
+
+export default function Background() {
   return (
     <div
       className="fixed left-0 top-0 h-[100vh] w-[100vw] bg-fixed"
@@ -13,5 +15,3 @@ function Background() {
     />
   );
 }
-
-export default Background;

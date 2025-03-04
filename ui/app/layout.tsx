@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +16,8 @@ import "@rainbow-me/rainbowkit/styles.css";
 import Providers from "@/components/common/providers";
 
 export const metadata: Metadata = {
-  title: "Test DApp",
-  description: "Init by Sceiiya",
+  title: "CorePlay",
+  description: "Team Paldo!",
 };
 
 export default function RootLayout({
@@ -29,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-pressStart subpixel-antialiased`}>
+      <body className={`scroll-smooth font-pressStart subpixel-antialiased`}>
         <Providers>
           <div className="flex min-h-screen flex-col justify-between">
             {children}

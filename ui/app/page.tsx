@@ -3,6 +3,7 @@ import Footer from "@/components/footer";
 import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   const features = [
@@ -29,7 +30,7 @@ export default function Home() {
   ];
   return (
     <>
-    <Header />
+      <Header />
       <div
         className="fixed left-0 top-0 h-[100vh] w-[100vw] bg-fixed"
         style={{
@@ -55,7 +56,7 @@ export default function Home() {
                 </p>
               </div>
               <Button className="title rounded-full border border-orange/100 uppercase text-orange/100">
-                Get Started
+                <Link href="/arcade/">Get Started</Link>
               </Button>
             </div>
           </Container>
@@ -116,7 +117,7 @@ export default function Home() {
                 Ready to level up? Get started now!
               </h4>
               <Button className="title rounded-full border border-orange/100 uppercase text-orange/100">
-                Get Started
+                <Link href="/arcade/">Get Started</Link>
               </Button>
             </div>
           </Container>

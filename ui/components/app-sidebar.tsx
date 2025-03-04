@@ -11,6 +11,7 @@ import {
 
 import { availableGames, socials, subSidebar } from "@/lib/constants";
 import { Separator } from "./ui/separator";
+import Link from "next/link";
 
 export function AppSidebar() {
   return (
@@ -29,16 +30,16 @@ export function AppSidebar() {
                       className="h-[50px] hover:bg-grey-400"
                       asChild
                     >
-                      <a href={item.url}>
+                      <Link href={item.url}>
                         <span className="title text-white/100">
                           {item.title}
                         </span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
-              <Separator className="mx-auto my-7 bg-white/8 max-w-[195px]" />
+              <Separator className="mx-auto my-7 max-w-[195px] bg-white/8" />
               <SidebarMenu className="mx-auto max-w-[195px]">
                 {subSidebar.map((item) => (
                   <SidebarMenuItem key={item.title} className="max-w-[194px]">
@@ -46,11 +47,11 @@ export function AppSidebar() {
                       className="h-[50px] hover:bg-grey-400"
                       asChild
                     >
-                      <a href={item.url}>
+                      <Link href={item.url}>
                         <span className="title text-white/100">
                           {item.title}
                         </span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -68,14 +69,14 @@ export function AppSidebar() {
                       className="h-[50px] hover:bg-grey-400"
                       asChild
                     >
-                      <a
+                      <Link
                         href={item.url}
                         className="flex items-center justify-center"
                       >
                         <span className="title text-white/100">
                           <item.icon className="size-[18px]" />
                         </span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}

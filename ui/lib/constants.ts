@@ -2,6 +2,7 @@ import { Address } from "viem";
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 import { FaXTwitter } from "react-icons/fa6";
 import { LiaTelegramPlane } from "react-icons/lia";
+import { EGameType } from "@/lib/enum";
 
 // export const REGISTRY_ADRESS : Address = "0x0Fe166d8E1f8BB1A22D0290B41f3052746775559"
 export const REGISTRY_ADDRESS: Address =
@@ -19,55 +20,62 @@ export const socials = [
   {
     title: "X",
     url: "#",
-    icon: FaXTwitter
+    icon: FaXTwitter,
   },
   {
     title: "Telegram",
     url: "#",
-    icon: LiaTelegramPlane
-  }
-]
+    icon: LiaTelegramPlane,
+  },
+];
 
 export const subSidebar = [
   {
-    title: "Dailies",
-    url: "#",
+    title: "Tasks",
+    url: "/arcade/tasks",
   },
   {
     title: "Referral",
-    url: "#",
-  }
+    url: "/arcade/referral",
+  },
 ];
 
 export const availableGames = [
   {
+    id: EGameType.Counter,
     title: "Counter",
-    url: "/games/counter",
+    url: "/arcade/counter",
+    play_on: "Count",
   },
   {
-    title: "Game 2",
-    url: "#",
+    id: EGameType.Coinflip,
+    title: "Coin Flip",
+    url: "/arcade/coinflip",
+    play_on: "Bet",
   },
   {
-    title: "Game 3",
-    url: "#",
+    id: EGameType.Dice,
+    title: "Dice",
+    url: "/arcade/dice",
+    play_on: "Bet",
   },
 ];
 
+
 export const mockStats = [
-  {
+  { 
     time: Date.now(),
-    user: '0xd3...d23d',
-    guess: 4
+    user: "0xd3...d23d",
+    guess: 4,
   },
   {
     time: Date.now(),
-    user: '0xdc...2efd',
-    guess: 7
+    user: "0xdc...2efd",
+    guess: 7,
   },
   {
     time: Date.now(),
-    user: '0xo3...2dd4',
-    guess: 1
-  }
-]
+    user: "0xo3...2dd4",
+    guess: 1,
+  },
+];
