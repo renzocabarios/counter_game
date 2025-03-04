@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-function CoinHeads() {
+function CoinHeads({s}:{s?:number}) {
   return (
     <Image
-      width={150}
-      height={150}
+    width={s ?? 150}
+    height={s ?? 150}
       alt="Headed Coin"
-      src="/images/coinflip/coin-heads.png"
+      src="/icons/coinflip/coin-heads.png"
     />
   );
 }

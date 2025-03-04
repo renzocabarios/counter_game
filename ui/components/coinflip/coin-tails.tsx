@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-function CoinTails() {
+function CoinTails({ s }: { s?: number }) {
   return (
     <Image
-      width={150}
-      height={150}
+      width={s ?? 150}
+      height={s ?? 150}
       alt="Tailed Coin"
-      src="/images/coinflip/coin-tails.png"
+      src="/icons/coinflip/coin-tails.png"
     />
   );
 }
