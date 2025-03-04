@@ -76,7 +76,7 @@ function GameConsole({
           </p>
         </div>
         <div className="flex w-full flex-col items-center gap-4">
-          <div className="flex h-[50px] w-full min-w-[115px] items-center justify-start ps-4 rounded-[16px] border border-white/100">
+          <div className="flex h-[50px] w-full min-w-[115px] items-center justify-start rounded-[16px] border border-white/100 ps-4">
             <p className="title text-white/100">{value}</p>
           </div>
 
@@ -130,11 +130,71 @@ function GameConsole({
         ) : (
           <Button
             onClick={onBet}
-            className="h-[50px] w-full rounded-[16px] bg-white/50 border border-white/50 uppercase text-black/50"
+            className="h-[50px] w-full rounded-[16px] border border-white/50 bg-white/50 uppercase text-black/50"
           >
             Choosing Side
           </Button>
         )}
+      </div>
+    );
+  } else if (gameType === "dice") {
+    return (
+      <div className="flex h-fit basis-[30%] flex-col items-center justify-center gap-4 rounded-md border border-white/32 p-4 text-white/100">
+        <div className="flex w-full flex-col">
+          <p className="subtext ps-1 pt-1 text-white/50">
+            Balance: <span>{100}</span>
+          </p>
+          <p className="subtext ps-1 pt-1 text-white/50">
+            Amount: <span>{100}</span>
+          </p>
+        </div>
+        <div className="flex w-full flex-col items-center gap-4">
+          <div className="flex h-[50px] w-full min-w-[115px] items-center justify-start rounded-[16px] border border-white/100 ps-4">
+            <p className="title text-white/100">{value}</p>
+          </div>
+
+          {/* //button to bet value*/}
+
+          {!betValue ? (
+            <div className="flex w-full items-center justify-between gap-4">
+              <Button
+                onClick={onMinus}
+                className="h-[50px] w-[49%] rounded-[16px] bg-white/100 uppercase text-black/100 hover:bg-black/72 hover:text-white/100"
+              >
+                <p>Max</p>
+              </Button>
+
+              <Button
+                onClick={onAdd}
+                className="h-[50px] w-[49%] rounded-[16px] bg-white/100 uppercase text-black/100 hover:bg-black/72 hover:text-white/100"
+              >
+                <p>Max</p>
+              </Button>
+            </div>
+          ) : (
+            <div className="flex w-full items-center justify-between">
+              <Button
+                onClick={onMinus}
+                className="h-[50px] w-[49%] rounded-[16px] bg-white/100 uppercase text-black/100 hover:bg-black/72 hover:text-white/100"
+              >
+                <p>Max</p>
+              </Button>
+
+              <Button
+                onClick={onAdd}
+                className="h-[50px] w-[49%] rounded-[16px] bg-white/100 uppercase text-black/100 hover:bg-black/72 hover:text-white/100"
+              >
+                <p>Max</p>
+              </Button>
+            </div>
+          )}
+        </div>
+        <Button
+          onClick={onBet}
+          className="h-[50px] w-full rounded-[16px] bg-white/100 uppercase text-black/100 hover:bg-black/72 hover:text-white/100"
+        >
+          Bet
+        </Button>
       </div>
     );
   }

@@ -10,7 +10,7 @@ import CoinTails from "@/components/coinflip/coin-tails";
 
 export default function Home() {
   const [value, setvalue] = useState(0);
-  const [betValue, setBetValue] = useState<number | null>(null)
+  const [betValue, setBetValue] = useState<number | null>(null);
   const [coin, setCoin] = useState<boolean>(false);
   const [coinFace, setCoinFace] = useState<JSX.Element>(<CoinHeads />);
 
@@ -29,28 +29,23 @@ export default function Home() {
   const onBet = () => {
     if (!betValue) {
       setBetValue(value);
-    }else{
+    } else {
       setBetValue(null);
     }
-  }
-
+  };
 
   const flip = (side: string) => {
-    if(side === 'heads'){
+    if (side === "heads") {
       setCoinFace(<CoinHeads />);
-    }else{
+    } else {
       setCoinFace(<CoinTails />);
-      
     }
 
-    if(side === 'heads'){
-    
+    if (side === "heads") {
       setCoin(true);
+    } else {
+      setCoin(false);
     }
-else{
-  setCoin(false);
-
-} 
     // setCoinFace(newCoin ? <CoinHeads /> : <CoinTails />);
   };
   return (
@@ -61,9 +56,7 @@ else{
           <div className="flex w-full gap-4">
             <div className="flex h-[464px] basis-[70%] flex-col gap-16 rounded-md border border-white/32 bg-black/50 p-4 align-middle">
               <div className="heading m-auto flex flex-col items-center justify-center gap-16 self-center text-white/100">
-                <div className="cursor-pointer">
-                  {coinFace}
-                </div>
+                <div className="cursor-pointer">{coinFace}</div>
                 <div className="flex h-[108px] w-[311px] flex-col items-center justify-center rounded-[8px] border border-white/32 p-4">
                   <p className="w-full text-center text-[10px] uppercase text-white/50">
                     Multiplier
