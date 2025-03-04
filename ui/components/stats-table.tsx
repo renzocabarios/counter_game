@@ -12,13 +12,47 @@ import { Button } from "./ui/button";
 function StatsTable({
   data,
   game,
+  referpage,
   active,
 }: {
   data: any;
   game?: boolean;
+  referpage?: boolean;
   active?: string;
 }) {
-  if (game) {
+  if(referpage){
+return(    <>
+    <Table>
+      <TableHeader>
+        <TableRow className="grid w-full grid-cols-3 gap-4 border-b py-2 text-white/100">
+          <TableHead className="text-start">Ranking</TableHead>
+          <TableHead className="text-center">User</TableHead>
+          <TableHead className="text-end">Referrals</TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        {data && data.length > 0 ? (
+          data.map((entry: any, i: number) => (
+            <TableRow
+              className="grid w-full grid-cols-3 gap-4 border-0 border-b py-2"
+              key={i}
+            >
+              <TableCell className="text-start">
+                #{entry.rank}
+              </TableCell>
+              <TableCell className="text-center">{entry.user}</TableCell>
+              <TableCell className="text-end">{entry.referrals}</TableCell>
+            </TableRow>
+          ))
+        ) : (
+          <TableRow>
+            <TableCell>{"No count yet!"}</TableCell>
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+  </>)
+  }else if (game) {
     return (
       <>
         <Table>

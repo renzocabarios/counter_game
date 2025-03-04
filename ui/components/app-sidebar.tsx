@@ -27,7 +27,7 @@ export function AppSidebar() {
                 {availableGames.map((item) => (
                   <SidebarMenuItem key={item.title} className="max-w-[194px]">
                     <SidebarMenuButton
-                      className="h-[50px] hover:bg-grey-400"
+                      className="h-[50px] hover:bg-grey-400 active:bg-grey-400"
                       asChild
                     >
                       <Link href={item.url}>
@@ -44,7 +44,7 @@ export function AppSidebar() {
                 {subSidebar.map((item) => (
                   <SidebarMenuItem key={item.title} className="max-w-[194px]">
                     <SidebarMenuButton
-                      className="h-[50px] hover:bg-grey-400"
+                      className="h-[50px] hover:bg-grey-400 active:bg-grey-400"
                       asChild
                     >
                       <Link href={item.url}>
@@ -66,7 +66,7 @@ export function AppSidebar() {
                     className="flex size-[40px] max-w-[194px] items-center justify-center rounded-full bg-white/32"
                   >
                     <SidebarMenuButton
-                      className="h-[50px] hover:bg-grey-400"
+                      className="h-[50px] hover:bg-grey-400 active:bg-grey-400"
                       asChild
                     >
                       <Link
