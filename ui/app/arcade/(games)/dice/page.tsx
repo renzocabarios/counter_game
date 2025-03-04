@@ -59,8 +59,8 @@ export default function Home() {
                     </div>
                   </div>{" "}
                 </div>
-                <div className="flex items-center justify-center">
-                  <div className="flex h-[108px] w-[311px] flex-col items-center justify-center rounded-[8px] border border-white/32 p-4">
+                <div className="flex items-center justify-center gap-4">
+                  <div className="flex h-[108px] w-full flex-col items-center justify-center rounded-[8px] border border-white/32 p-4">
                     <p className="w-full text-center text-[10px] uppercase text-white/50">
                       Multiplier
                     </p>
@@ -68,7 +68,7 @@ export default function Home() {
                       X 0.199
                     </div>
                   </div>
-                  <div className="flex h-[108px] w-[311px] flex-col items-center justify-center rounded-[8px] border border-white/32 p-4">
+                  <div className="flex h-[108px] w-full] flex-col items-center justify-center rounded-[8px] border border-white/32 p-4">
                     <p className="w-full text-center text-[10px] uppercase text-white/50">
                       Chance
                     </p>
