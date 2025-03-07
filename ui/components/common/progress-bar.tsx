@@ -49,8 +49,7 @@ const ProgressBar: React.FC<IProgressBarProps> = ({
               key={index}
               className={`
                 ${isActive ? 'bg-orange/100 shadow-md' : ''}
-                ${isLast && !shouldPulseAll ? 'animate-pulse' : ''}
-                ${shouldPulseAll ? 'animate-pulse' : ''}
+                ${isLast ? 'animate-pulse' : ''}
                 transition-all duration-1000 ease-out
               `}
             />

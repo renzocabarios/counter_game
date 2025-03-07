@@ -308,7 +308,7 @@ export default function Page() {
               <p className="subtitle max-w-md text-center text-white/80">
                 Remember to play responsibly and have fun. Let the games begin!
               </p>
-              {selectedImage && (
+              {/* {selectedImage && (
                 <div className="h-24 w-24 overflow-hidden rounded-full">
                   <img
                     src={selectedImage}
@@ -316,7 +316,7 @@ export default function Page() {
                     className="h-full w-full object-cover"
                   />
                 </div>
-              )}
+              )} */}
               <Link
                 href="/arcade"
                 className="title flex h-[82px] w-full max-w-[300px] items-center justify-center bg-orange/100 uppercase text-white/100 hover:bg-orange/80"
