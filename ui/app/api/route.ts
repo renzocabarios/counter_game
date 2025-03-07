@@ -1,24 +1,25 @@
 import prisma from "@/lib/prisma";
-import { NextRequest, NextResponse } from "next/server";
+// import { Request, Response } from "next/server";
 
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET(req: Request) {
   try {
     const users = await prisma.user.findMany();
-    return NextResponse.json(users, {
+    return Response.json(users, {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
   } catch (error) {
-    return NextResponse.json(error, {
+    return Response.json(error, {
       status: 400,
       headers: { "Content-Type": "application/json" },
     });
   }
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: Request) {
   try {
-    const { email = "mongoloid@gmail.com", name = "bomm bakudan" } = req.body;
+    const email = "mongoloid@gmail.com";
+    const name = "bomm bakudan";
 
     try {
       const user = await prisma.user.create({
@@ -27,18 +28,18 @@ export async function POST(req: NextRequest, res: NextResponse) {
           name,
         },
       });
-      return NextResponse.json(user, {
+      return Response.json(user, {
         status: 200,
         headers: { "Content-Type": "application/json" },
       });
     } catch (error) {
-      return NextResponse.json(error, {
+      return Response.json(error, {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
     }
   } catch (error) {
-    return NextResponse.json(error, {
+    return Response.json(error, {
       status: 400,
       headers: { "Content-Type": "application/json" },
     });
