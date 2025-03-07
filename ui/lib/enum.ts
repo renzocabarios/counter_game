@@ -4,6 +4,7 @@ export enum EArcadeRoutes {
   Dice = "/arcade/dice",
   Tasks = "/arcade/tasks",
   Referral = "/arcade/referral",
+  Onboarding = "/arcade/onboarding",
 }
 
 export const ArcadeTitles: Record<EArcadeRoutes, any> = {
@@ -12,6 +13,7 @@ export const ArcadeTitles: Record<EArcadeRoutes, any> = {
   [EArcadeRoutes.Dice]: "Dice",
   [EArcadeRoutes.Tasks]: "Tasks",
   [EArcadeRoutes.Referral]: "Referral",
+  [EArcadeRoutes.Onboarding]: "CorePlay",
 };
 
 export enum EGameType {
