@@ -1,4 +1,3 @@
-// app/api/tests/test-endpoints.js
 const prisma = require('../../lib/prisma/schema.prisma');
 // Base URL for your API (adjust if running on a different port)
 const BASE_URL = 'http://localhost:3000';
