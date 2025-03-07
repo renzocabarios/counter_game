@@ -27,3 +27,41 @@ model Post {
   authorId  Int
   author    User     @relation(fields: [authorId], references: [id])
 }
+
+
+// Player model
+model Player {
+  address       String    @id // EVM address as primary key, unique
+  id            String    @unique @db.VarChar(8) // 8-character custom ID
+  createdAt     DateTime  @default(now())
+  referredBy    String?   @map("referred_by") // EVM address of referrer
+  referrals     Player[]  @relation("Referrals") // Players this player referred
+  referrer      Player?   @relation("Referrals", fields: [referredBy], references: [address]) // The referrer
+  referralCount Int       @default(0) @map("referral_count") // Total number of referrals
+  tasks         Task[]    // Tasks completed by this player
+  points        Int       @default(0) // Total points earned from tasks
+
+  @@index([referredBy]) // Index for faster referral lookups
+}
+
+// Task model
+model Task {
+  id          Int      @id @default(autoincrement())
+  player      Player   @relation(fields: [playerAddress], references: [address])
+  playerAddress String @map("player_address")
+  title       String
+  description String?
+  type        TaskType
+  points      Int      @default(0) // Points awarded for completing this task
+  completed   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  completedAt DateTime?
+
+  @@index([playerAddress])
+}
+
+// Enum for task types
+enum TaskType {
+  DAILY
+  WEEKLY
+}
