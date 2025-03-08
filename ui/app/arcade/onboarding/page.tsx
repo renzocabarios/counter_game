@@ -4,9 +4,9 @@ import ProgressBar from "@/components/common/progress-bar";
 import { Button } from "@/components/ui/button";
 import { useAccount } from "wagmi";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react"; // Added Suspense
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import ReferrerHandler from "@/components/common/referrer-handler";
 
 export default function Page() {
   const { address, isConnected } = useAccount();
@@ -20,9 +20,6 @@ export default function Page() {
   const [isReferralValid, setIsReferralValid] = useState<boolean>(false); // Track if referral code is validated
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const searchParams = useSearchParams();
-  const referredByID = searchParams.get("referralid");
-  console.log("referredByID", referredByID);
   const sampleRefIdList = [
     "3F4lkjfi",
     "3fglK55i",
@@ -39,12 +36,6 @@ export default function Page() {
     { id: 5, step: "disclaimer" },
     { id: 6, step: "welcome" },
   ];
-
-  useEffect(() => {
-    if (referredByID) {
-      setReferrer(referredByID);
-    }
-  }, [referredByID]);
 
   useEffect(() => {
     if (isConnected && !completedSteps.includes(1)) {
@@ -402,6 +393,9 @@ export default function Page() {
         <div className="flex h-full w-full max-w-[1440px] flex-col items-center justify-center gap-8 p-8">
           <div className="flex h-[474px] basis-[70%] items-center justify-center gap-4 rounded-md p-4">
             <div id="container" className="flex w-[608px] flex-col gap-8">
+              <Suspense fallback={<div>Loading...</div>}>
+                <ReferrerHandler setReferrer={setReferrer} />
+              </Suspense>
               {renderStepContent()}
             </div>
           </div>
