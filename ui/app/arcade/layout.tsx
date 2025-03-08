@@ -6,15 +6,15 @@ import { usePathname } from "next/navigation";
 import { EArcadeRoutes, ArcadeTitles } from "@/lib/enum";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-
   const pathname = usePathname() as EArcadeRoutes;
   const title = ArcadeTitles[pathname] || "CorePlay";
+  const isOnboarding = ArcadeTitles[pathname] === "CorePlay";
 
   return (
     <SidebarProvider>
       <AppSidebar />
       <div className="w-full">
-        <Header title={title} />
+        <Header isOnboarding={isOnboarding} title={title} />
         <main>
           {/* <SidebarTrigger  /> */}
           {children}
