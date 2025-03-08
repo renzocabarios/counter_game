@@ -151,7 +151,7 @@ export default function Page() {
               <p className="title text-green/100">Username</p>
               <input
                 type="text"
-                placeholder="Name (min 4 characters only)"
+                placeholder="Name (min 4 characters)"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="title h-[50px] w-full cursor-text border-b border-green/100 bg-transparent p-4 text-white/50 placeholder-grey-100 focus:outline-none focus:ring-0"
@@ -362,7 +362,7 @@ export default function Page() {
               )} */}
               <Link
                 href="/arcade"
-                className="title flex h-[82px] w-full max-w-[300px] items-center justify-center bg-orange/100 uppercase text-white/100 hover:bg-orange/80"
+                className="title rounded-[8px] flex h-[82px] w-full max-w-[300px] items-center justify-center bg-orange/100 uppercase text-white/100 hover:bg-orange/80"
               >
                 To Arcade
               </Link>
