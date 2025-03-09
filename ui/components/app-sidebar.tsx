@@ -14,11 +14,9 @@ import { Separator } from "./ui/separator";
 import Link from "next/link";
 
 import { useAccount } from "wagmi";
-// import { useConnectModal } from "@rainbow-me/rainbowkit";
 
 export function AppSidebar() {
   const { isConnected } = useAccount();
-  // const { openConnectModal } = useConnectModal();
   if (!isConnected) {
     return <></>;
   } else {
@@ -49,10 +47,10 @@ export function AppSidebar() {
                 </SidebarMenu>
                 <Separator className="mx-auto my-7 max-w-[195px] bg-white/8" />
                 <SidebarMenu className="mx-auto max-w-[195px]">
-                  {subSidebar.map((item) => (
+                  {subSidebar.map((item, i) => (
                     <SidebarMenuItem key={item.title} className="max-w-[194px]">
                       <SidebarMenuButton
-                        className="h-[50px] hover:bg-grey-400 active:bg-grey-400"
+                        className={`h-[50px] hover:bg-grey-400 active:bg-grey-400 ${subSidebar.length === i+1 ? "border border-white/32 uppercase bg-white/8" : ""}`}
                         asChild
                       >
                         <Link href={item.url}>

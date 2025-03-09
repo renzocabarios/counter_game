@@ -1,4 +1,3 @@
-import ConnectWallet from "@/components/common/connect-wallet";
 import { useAccount } from "wagmi";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 export default function Header({
