@@ -38,6 +38,14 @@ export const subSidebar = [
     title: "Referral",
     url: "/arcade/referral",
   },
+  {
+    title: "Faucet",
+    url: "/arcade/faucet",
+  },
+  {
+    title: "Swap $CPT",
+    url: "/arcade/token-swap",
+  },
 ];
 
 export const availableGames = [

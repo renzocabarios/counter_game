@@ -1,5 +1,5 @@
-import ConnectWallet from "@/components/common/connect-wallet";
-
+import { useAccount } from "wagmi";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 export default function Header({
   title,
   isOnboarding,
@@ -7,6 +7,8 @@ export default function Header({
   title: string;
   isOnboarding?: boolean;
 }) {
+  const { address, isConnected } = useAccount();
+  const { openConnectModal } = useConnectModal();
 
   if (!isOnboarding) {
     return (
@@ -20,7 +22,16 @@ export default function Header({
               <p className="description flex h-full items-center justify-center rounded-sm border border-orange/100 bg-orange/8 p-2 uppercase text-orange/100">
                 $Play&nbsp;<span>{0}</span>
               </p>
-              <ConnectWallet />
+              <div
+                onClick={openConnectModal}
+                className="description w-full cursor-pointer rounded-full border border-white/100 bg-orange/100 p-2 text-white/100 hover:bg-orange/80"
+              >
+                {!isConnected
+                  ? "Connect Wallet"
+                  : `${address?.slice(0, 6)}…${address?.slice(-4)}`}{" "}
+              </div>
+
+              {/* <ConnectWallet /> */}
             </div>
           )}
         </div>
