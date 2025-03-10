@@ -15,9 +15,29 @@ datasource db {
 
 
 model User {
-  id    String     @id
+  address    String     @id
   username  String @unique
+  referralCode  String @unique
+  profilePic  String 
   deposit Int @default(0)
+  numberOfReferrals Int @default(0)
+
+  referredBy   User?   @relation(name: "UserReferrals", fields: [referredById], references: [address])
+  referredById String? @unique
+  referredUser User?   @relation(name: "UserReferrals")
+
+
+  referralsGiven Referral[] @relation(name: "ReferrerRelation")
+  referralsReceived Referral[] @relation(name: "ReferredRelation")
+}
+
+
+model Referral {
+  id          Int     @id @default(autoincrement())
+  referrer    User    @relation(name: "ReferrerRelation", fields: [referrerId], references: [address])
+  referrerId  String
+  referred    User    @relation(name: "ReferredRelation", fields: [referredId], references: [address])
+  referredId  String
 }
 
 enum GameStatus {
