@@ -8,9 +8,39 @@ app.get("/address/:id", async (ctx) => {
   const address = ctx.req.param("id");
 
   try {
-    const user = await prisma.user.findFirstOrThrow({
+    const user = await prisma.user.findFirst({
       where: {
         address,
+      },
+    });
+
+    if (!user) {
+      return ctx.json(
+        {
+          data: [],
+        },
+        200
+      );
+    }
+
+    return ctx.json(
+      {
+        data: [user],
+      },
+      201
+    );
+  } catch (e) {
+    return ctx.json({}, 500);
+  }
+});
+
+app.get("/referralCode/:id", async (ctx) => {
+  const referralCode = ctx.req.param("id");
+
+  try {
+    const user = await prisma.user.findFirstOrThrow({
+      where: {
+        referralCode,
       },
     });
 
@@ -25,7 +55,7 @@ app.get("/address/:id", async (ctx) => {
   }
 });
 
-app.get("/name/:id", async (ctx) => {
+app.get("/username/:id", async (ctx) => {
   const username = ctx.req.param("id");
 
   try {
@@ -34,6 +64,15 @@ app.get("/name/:id", async (ctx) => {
         username,
       },
     });
+
+    if (!user) {
+      return ctx.json(
+        {
+          data: [],
+        },
+        200
+      );
+    }
 
     return ctx.json(
       {
