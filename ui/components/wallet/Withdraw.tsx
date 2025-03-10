@@ -16,7 +16,7 @@ export function WithdrawButton() {
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          className="w-full rounded-[4px] border-none bg-white/100 p-2 text-left text-black/100 hover:bg-white/80"
+          className="w-full rounded-[4px] border-none bg-white/100 p-2 text-left text-[8px] text-black/100 hover:bg-white/80 md:text-[14px]"
           variant="outline"
         >
           Withdraw

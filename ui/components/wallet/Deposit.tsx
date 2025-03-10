@@ -16,7 +16,7 @@ export function DepositButton() {
     <Dialog>
       <DialogTrigger asChild>
         <Button
-          className="w-full rounded-[4px] border-none bg-orange/100 p-2 text-left text-white/100 hover:bg-orange/80"
+          className="w-full rounded-[4px] border-none bg-orange/100 p-2 text-left text-[8px] text-white/100 hover:bg-orange/80 md:text-[14px]"
           variant="outline"
         >
           Deposit
@@ -72,7 +72,9 @@ export function DepositButton() {
         {/* cut */}
 
         <section>
-          <p className="subtext text-white/50">Current Connected Wallet Addres</p>
+          <p className="subtext text-white/50">
+            Current Connected Wallet Addres
+          </p>
 
           <div className="flex items-center space-x-2">
             <div className="flex flex-1 items-center justify-center gap-2 rounded-[4px] border border-white/12">
