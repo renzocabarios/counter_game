@@ -1,0 +1,96 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+  id    String     @id
+  username  String @unique
+  deposit Int @default(0)
+}
+
+enum GameStatus {
+  PENDING
+  WON
+  LOSE
+}
+
+model CoinFlipSession {
+  id    Int       @id @default(autoincrement())
+  status  GameStatus   @default(PENDING)
+  flips CoinFlip[]
+}
+
+enum CoinFlipType {
+  HEADS
+  TAILS
+}
+
+enum CoinFlipStatus {
+  WON
+  LOSE
+}
+
+
+model CoinFlip {
+  id    Int       @id @default(autoincrement())
+  userGuess CoinFlipType
+  houseAnswer CoinFlipType
+  status CoinFlipStatus
+  coinFlipSession    CoinFlipSession    @relation(fields: [coinFlipSessionId], references: [id])
+  coinFlipSessionId  Int
+}
+
+
+model DiceGameSession {
+  id    Int       @id @default(autoincrement())
+  status  GameStatus   @default(PENDING)
+  flips DiceGameFlip[]
+
+}
+
+enum DiceGameFlipType {
+  OVER
+  UNDER
+}
+
+enum DiceGameFlipStatus {
+  OVER
+  UNDER
+}
+
+model DiceGameFlip {
+  id    Int       @id @default(autoincrement())
+  flipType DiceGameFlipType
+  userGuess Int
+  houseInput Int
+  status DiceGameFlipStatus
+  diceFlipSession    DiceGameSession    @relation(fields: [diceFlipSessionId], references: [id])
+  diceFlipSessionId  Int
+}
+
+
+model LuckyNumberSession {
+  id    Int       @id @default(autoincrement())
+  status  GameStatus   @default(PENDING)
+  draws LuckyNumberDraw[]
+}
+
+model LuckyNumberDraw {
+  id    Int       @id @default(autoincrement())
+  userGuess Int
+  houseInput Int
+  luckyNumberSession    LuckyNumberSession    @relation(fields: [luckyNumberSessionId], references: [id])
+  luckyNumberSessionId  Int
+}
