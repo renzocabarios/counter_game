@@ -7,12 +7,18 @@ import { mockStats } from "@/lib/constants";
 import StatsTable from "@/components/stats-table";
 import CoinHeads from "@/components/coinflip/coin-heads";
 import CoinTails from "@/components/coinflip/coin-tails";
+import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
+import { useAccount } from "wagmi";
+import CoinFlip from "@/views/coin-flip/coin-flip";
 
 export default function Home() {
   const [value, setvalue] = useState(0);
   const [betValue, setBetValue] = useState<number | null>(null);
   const [coin, setCoin] = useState<boolean>(false);
   const [coinFace, setCoinFace] = useState<JSX.Element>(<CoinHeads />);
+
+  const { address } = useAccount();
 
   const onAdd = () => {
     if (value < 7) {
@@ -54,28 +60,7 @@ export default function Home() {
       <div className="flex w-full items-center justify-center">
         <div className="flex w-full max-w-[1440px] flex-col gap-8 p-8">
           <div className="flex w-full gap-4">
-            <div className="flex h-[464px] basis-[70%] flex-col gap-16 rounded-md border border-white/32 bg-black/50 p-4 align-middle">
-              <div className="heading m-auto flex flex-col items-center justify-center gap-16 self-center text-white/100">
-                <div className="cursor-pointer">{coinFace}</div>
-                <div className="flex h-[108px] w-[311px] flex-col items-center justify-center rounded-[8px] border border-white/32 p-4">
-                  <p className="w-full text-center text-[10px] uppercase text-white/50">
-                    Multiplier
-                  </p>
-                  <div className="title flex h-[50px] w-[279px] items-center justify-center rounded-[16px] bg-white/100 uppercase text-black/100">
-                    X 0.199
-                  </div>
-                </div>
-              </div>
-            </div>
-            <GameConsole
-              gameType="coinflip"
-              value={value}
-              betValue={betValue}
-              onAdd={onAdd}
-              onMinus={onMinus}
-              onBet={onBet}
-              onFlip={flip}
-            />
+            <CoinFlip />
           </div>
           <div className="flex w-full basis-[100%] flex-col gap-4 rounded-md border border-white/32 bg-black/50 p-4 text-white/100">
             <div className="flex justify-between">

@@ -49,6 +49,8 @@ enum GameStatus {
 model CoinFlipSession {
   id    Int       @id @default(autoincrement())
   status  GameStatus   @default(PENDING)
+  address  String
+  bet  Int
   flips CoinFlip[]
 }
 
